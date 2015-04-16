@@ -1,0 +1,70 @@
+/* CSS Document */
+body {
+	font: 12px arial;
+	color: #222;
+	text-align: center;
+}
+
+form, p, span {
+	margin: 0px;
+	padding: 0px;
+}
+
+input {
+	font: 12px arial;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+#main {
+	padding: 10px;
+}
+
+#chat {
+    margin: auto;
+	background-color: #EBF4FB;
+	max-width: 504px;
+	border: 1px solid #ACD8F0;
+}
+
+#menu {
+	padding: 12.5px 25px 12.5px 25px;
+}
+
+#username {
+	max-width: 300px;
+}
+
+#chatbox{
+	margin: 5px;
+}
+
+#messages {
+	text-align: left;
+	margin: auto;
+	padding: 10px;
+	background-color: #f6f6f6;
+	height: 270px;
+	max-width: 430px;
+	border: 1px solid #ACD8F0;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#formMessage {
+	padding: 12.5px 25px 12.5px 25px;
+}
+
+#message {
+	width: 100%;
+}
+
+#send {
+	margin-top: 20px;
+}
