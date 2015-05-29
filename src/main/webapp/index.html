@@ -31,29 +31,47 @@
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 	<script type="text/javascript">
-		var ws;
-
-		$(document).ready(function() {
-			var ws_url = "ws://" + document.location.host + "/chat-websocket/webSocketChat";
-			ws = new WebSocket(ws_url);
-
-			ws.onopen = function(event) {
-
-			}
-			ws.onmessage = function(event) {
-				var $messages = $('#messages');
-				$messages.html($messages.html() + event.data + "<br/><br/>");
+		var ws = null;
+		
+		var conectar = function(){
+			if(ws == null || ws.readyState != 1){
+				ws = null;
 				
-				/*$messages.animate({
-					scrollTop : ($messages)[0].scrollHeight
-				}, "slow");*/
+				var ws_protocol = "ws://";
+	
+				if(location.protocol == "https:"){
+				  ws_protocol = "wss://";
+				}
+	
+				var ws_url = ws_protocol + location.host + "/chat-websocket/webSocketChat";
+				    
+				if ("WebSocket" in window) {
+					ws = new WebSocket(ws_url);
+				}
+				else if ("MozWebSocket" in window) {
+					ws = new MozWebSocket(ws_url);
+				}else{
+					alert("Browser sem suporte a WebSocket!");
+				}
+	
+				if(ws != null){
+	
+					ws.onopen = function(event) {
+	
+					}
+					ws.onmessage = function(event) {
+						var $messages = $('#messages');
+						$messages.html($messages.html() + event.data + "<br/><br/>");
+					}
+					ws.onclose = function(event) {
+	
+					}
+	
+				}
 			}
-			ws.onclose = function(event) {
+		}
 
-			}
-		});
-
-		sendMessage = function() {
+		var sendMessage = function() {
 			if ($('#username').val() != "") {
 				var message = $('#username').val() + ": " + $('#message').val();
 				ws.send(message);
@@ -67,6 +85,10 @@
 			if (e.keyCode === 13) {
 				sendMessage();
 			}
+		});
+		
+		$(document).ready(function() {
+			conectar();
 		});
 	</script>
 </body>
