@@ -34,7 +34,7 @@
 		var ws = null;
 		
 		var conectar = function(){
-			if(ws == null || ws.readyState != 1){
+			if(ws == null || ws.readyState > 1){
 				ws = null;
 				
 				var ws_protocol = "ws://";
@@ -57,14 +57,16 @@
 				if(ws != null){
 	
 					ws.onopen = function(event) {
-	
+						ws.keepAlive = true;
 					}
 					ws.onmessage = function(event) {
 						var $messages = $('#messages');
 						$messages.html($messages.html() + event.data + "<br/><br/>");
 					}
 					ws.onclose = function(event) {
-	
+						if(ws.keepAlive){
+							conectar();
+						}
 					}
 	
 				}
