@@ -57,16 +57,14 @@
 				if(ws != null){
 	
 					ws.onopen = function(event) {
-						ws.keepAlive = true;
+						console.info("WS open: " + Date());
 					}
 					ws.onmessage = function(event) {
 						var $messages = $('#messages');
 						$messages.html($messages.html() + event.data + "<br/><br/>");
 					}
 					ws.onclose = function(event) {
-						if(ws.keepAlive){
-							conectar();
-						}
+						console.info("WS close: " + Date());
 					}
 	
 				}

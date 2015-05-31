@@ -35,6 +35,7 @@ public class ChatWebSocket implements OnTextMessage {
 
 	@Override
 	public void onOpen(Connection connection) {
+		connection.setMaxIdleTime(-1);
 		this.connection = connection;
 		users.add(this);
 	}
