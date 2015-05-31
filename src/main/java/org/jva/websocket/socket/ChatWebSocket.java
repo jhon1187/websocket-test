@@ -10,20 +10,17 @@ public class ChatWebSocket implements OnTextMessage {
 
 	private static Set<ChatWebSocket> users;
 
-	public ChatWebSocket() {
-		super();
-	}
-
 	public ChatWebSocket(Set<ChatWebSocket> users) {
 		ChatWebSocket.users = users;
 	}
 
+	@Override
 	public void onMessage(String data) {
 		sendMessage(data);
 	}
 
 	public static void sendMessage(String data) {
-		if(users != null){
+		if (users != null) {
 			for (ChatWebSocket user : users) {
 				try {
 					user.connection.sendMessage(data);
