@@ -1,4 +1,4 @@
-# chat-websocket
+# Websocket
 Pequeno chat para testar websocket com html5 + jquery + jetty.
 
 Para testar basta compilar com maven: 
