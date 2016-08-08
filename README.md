@@ -1,5 +1,5 @@
 # Websocket
-Pequeno chat para testar websocket com html5 + jquery + jetty.
+Pequeno chat para testar websocket com html5 + js + jetty-8.
 
 Para testar basta compilar com maven: 
 
