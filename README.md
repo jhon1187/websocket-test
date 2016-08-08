@@ -8,6 +8,10 @@ Para testar basta compilar com maven:
 Após, para subir a aplicação: 
 
   mvn jetty:run
+  
+Acessar: http://localhost:8080/chat-websocket/
 
 Obs.: Existe uma classe InitServlet, onde descomentando o código dentro do método init fica habilitado um teste de envio de mensagem por batch de tempo em tempo.
+
+
 
