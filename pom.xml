@@ -11,7 +11,7 @@
 
 	<properties>
 		<jetty.version>8.1.15.v20140411</jetty.version>
-		<junit.version>4.4</junit.version>
+		<junit.version>4.13.1</junit.version>
 		<jdk.version>1.8</jdk.version>
 		<maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
 	</properties>
